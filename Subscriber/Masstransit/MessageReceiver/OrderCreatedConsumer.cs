@@ -15,7 +15,6 @@ namespace Subscriber.Masstransit.MessageReceiver
         public async Task Consume(ConsumeContext<OrderCreated> context)
         {
             Console.WriteLine("Message recieved");
-            await Console.Out.WriteLineAsync(context.Message.ToString());
             var jsonMessage = JsonConvert.SerializeObject(context.Message);
             await Task.Delay(15_000);
             Console.WriteLine($"OrderCreated message: {jsonMessage}");
