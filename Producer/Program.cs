@@ -1,4 +1,5 @@
-
+using MassTransit;
+using MassTransit.AspNetCoreIntegration;
 namespace Producer
 {
     public class Program
@@ -8,7 +9,11 @@ namespace Producer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddMassTransit(x =>
+            {
+                x.UsingRabbitMq();
+            });
+            //builder.Services.AddMassTransitHostedService();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

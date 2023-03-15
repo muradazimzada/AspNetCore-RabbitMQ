@@ -1,4 +1,4 @@
-namespace Producer
+namespace Producer.DTOs
 {
     public class WeatherForecast
     {
